@@ -1,0 +1,33 @@
+﻿@page "{workorderId:int?}"
+@model WorkOrders.Pages.EditModel
+@{
+}
+
+<h1>Editing @Model.WorkOrder.WorkOrderNumber</h1>
+<form method="post">
+    <input type="hidden" asp-for="WorkOrder.Id" />
+    <div class="form-group">
+        <label>Order Number</label>
+        <input asp-for="WorkOrder.WorkOrderNumber" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="WorkOrder.ETA"></label>
+        <input asp-for="WorkOrder.ETA" type="date" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Client</label>
+        <select asp-for="WorkOrder.ClientId" asp-items="Model.Clients" class="form-control">
+        </select>
+    </div>
+    <div class="form-group">
+        <label>State</label>
+        <select asp-for="WorkOrder.StateId" asp-items="Model.State" class="form-control">
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Status</label>
+        <select asp-for="WorkOrder.StatusId" asp-items="Model.Status" class="form-control">
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
